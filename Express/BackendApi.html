@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Fetch Example</title>
+</head>
+<body>
+  <h2>Student Lists</h2>
+  <ul id="studentList"></ul>
+  <script>
+    fetch("http://localhost:4003/api/students")
+    .then(res=>res.json())
+    .then(data =>{
+      const list=document.getElementById("studentList");
+      data.forEach(stu=>{
+        let li=document.createElement("li");
+        li.textContent=`${stu.name} -> ${stu.age}`;
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

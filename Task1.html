@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <h2>Customer Data</h2>
+  <div id="customers"></div>
+
+  <h2>Add Customer</h2>
+  <form action="/add" method="POST">
+    <input type="text"  name="name" required placeholder="Name">
+    <input type="text" name="age" required placeholder="Age">
+    <button type="submit">Add</button>
+  </form>
+
+  <script>
+    function LoadCustomers(){
+      fetch('/customers')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('customers');
+        container.innerHTML = data
+          .map(c => `<p><strong>ID:<strong/>${c.id} <strong>NAME:<strong/>${c.name} ,<strong>AGE:<strong/>${c.age}</p>`).join('');
+          
+      });
+    }
+
+    // Call the function so it loads on page load
+    LoadCustomers();
+  </script>
+</body>
+</html>

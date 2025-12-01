@@ -1,0 +1,17 @@
+
+Reg no: 101
+Name: khushi
+Grade:A
+---------------------
+Reg no:102
+Name:Dolly
+Grade:A
+---------------------
+Reg no:103
+Name:Julie
+Grade:A
+---------------------
+Reg no:104
+Name:Tejaswani
+Grade:A
+---------------------

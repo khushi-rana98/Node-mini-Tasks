@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EJS Dynamic Page</title>
+</head>
+<body>
+
+  <h1>Welcome, <%= student.name %></h1>
+
+  <p><b>Course:</b> <%= student.course %></p>
+  <p><b>Marks:</b> <%= student.marks %></p>
+  <p><b>Date:</b> <%= student.date %></p>
+
+  <hr>
+
+  <h2>Student List</h2>
+  <ul>
+   <% 
+   students.forEach(s=> { %>
+    <li>
+      <%=  s.name %> --> Grade: <%= s.grade %>
+    </li>
+   <%})
+   %>
+  </ul>
+
+</body>
+</html>
