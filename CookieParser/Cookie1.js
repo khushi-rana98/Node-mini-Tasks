@@ -14,4 +14,11 @@ app.get('/get',(req,res)=>{
 });
 
 app.listen(3000,()=>
+
 console.log("Server running on localhost:3000"));
+
+// 1️⃣ Server sets cookie → res.cookie()
+// 2️⃣ Browser stores cookie
+// 3️⃣ Browser sends cookie with every request
+// 4️⃣ cookie-parser reads cookie
+// 5️⃣ Cookie available in req.cookies
