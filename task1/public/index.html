@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+</head>
+<body>
+  <h2>Student Details</h2>
+
+  <input type="text" id="name" placeholder="Enter name">
+  <input type="text" id="roll" placeholder="Enter roll">
+  <input type="text" id="dept" placeholder="Enter department">
+  <button onclick="sendDetails()">Submit</button>
+
+  <h3>Notifications:</h3>
+  <ul id="notifications"></ul>
+
+  <!-- Socket.IO client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    // 1️⃣ Connect to server
+    const socket = io("http://localhost:5000");
+
+    // 2️⃣ Send student details
+    function sendDetails() {
+      const student = {
+        name: document.getElementById("name").value,
+        roll: document.getElementById("roll").value,
+        department: document.getElementById("dept").value
+      };
+
+      socket.emit("studentDetails", student);
+      console.log("Student data sent:", student);
+    }
+
+    // 3️⃣ Receive odd visitor count
+    socket.on("visitorCount", (count) => {
+      console.log("Odd visitor count:", count);
+      const li = document.createElement("li");
+      li.innerText = `Odd visitor count: ${count}`;
+      document.getElementById("notifications").appendChild(li);
+    });
+  </script>
+</body>
+</html>
