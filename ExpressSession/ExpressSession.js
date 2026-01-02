@@ -1,6 +1,16 @@
 const express=require('express');
 const session=require('express-session');
 
+// 1️⃣ User opens /login
+// 2️⃣ Server creates a session
+// 3️⃣ Username server ke memory mein store hota hai
+// 4️⃣ Browser ko ek session-id cookie milta hai
+
+// 5️⃣ User opens /dashboard
+// 6️⃣ Browser sends session-id
+// 7️⃣ Server checks session data
+// 8️⃣ Access allowed / denied
+
 const  app=express();
 app.use(session({
 secret:"mysecret",
@@ -30,3 +40,4 @@ app.get('/dashboard',(req,res)=>{
 
 app.listen(3000,()=>
 console.log("Server running on localhost:3000"));
+
