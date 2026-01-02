@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Document</title>
+</head>
+<body>
+  <h2>MultiRoute App</h2>
+  <button onclick="fetchRoute('home')">Home</button>
+  <button onclick="fetchRoute('about')">About</button>
+  <button onclick="fetchRoute('contact')">Contact</button>
+
+  <div id="output"></div>
+
+  <script>
+    function fetchRoute(route){
+      fetch(`/${route}`)
+      .then(res=>res.json())
+      .then(data=>{
+        document.getElementById("output").innerHTML=data.message;
+      })
+      .catch((err)=>{
+        console.log("Error: ",err);
+      })
+    }
+  </script>
+
+</body>
+</html>
